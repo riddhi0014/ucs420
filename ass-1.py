@@ -226,3 +226,46 @@ print("tan of 90 :" , m.tan(90))
 print("Factorial of 5 :" , m.factorial(5))
 print("Ceil of 4.5 :" , m.ceil(4.5))
 print("Floor of 4.5 :" , m.floor(4.5))
+
+#8 Strings
+
+#8.1 Indexing in string
+
+
+str="Hello World!"
+print(str[0]) #H
+print(str[6]) #W
+print(str[-1]) #!
+print(str[-6]) #W
+print(str[-7]) #space
+print(str[-12]) #H
+print(str[0:5]) #Hello 0 is inclusive, 5 is exclusive
+print(str[6:]) #World! 6 is inclusive, till end of string
+print(str[:-5]) #Hello 0 is inclusive, -5 is exclusive
+print(str[-6:]) #World! -6 is inclusive, till end of string
+
+#8.2 String length, upper, lower
+s=input("Enter a string: ")
+
+print(f"Length of string is: {len(s)}")
+print(f"Uppercase of string is: {s.upper()}")
+print(f"Lowercase of string is: {s.lower()}")
+
+#8.3 String formatting
+name=input("Enter your name: ")
+age=int(input("Enter your age: "))
+price=float(input("Enter the price: "))
+
+s="Name: %s, Age: %d, Price: %.2f" %(name.upper(), age, price)
+
+#8.4 String in Triple Quotes
+para_str = """This is a long string that is made up of
+several lines and non-printable characters such as
+TAB ( \t ) and they will show up that way when displayed.
+NEWLINEs within the string, whether explicitly given like
+this within the brackets [ \n ], or just a NEWLINE within
+the variable assignment will also show up.
+"""
+print(para_str)
+
+#8.5 String strip
