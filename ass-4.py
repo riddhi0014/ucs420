@@ -1,6 +1,8 @@
 import pandas as pd
 
-roll_number=1024170181
+
+#Q.1 
+roll_number=input("Enter your roll no.")
 last_two_digits = roll_number[-2:]
 
 categories=["billing", "account",
@@ -20,6 +22,7 @@ fixed_entries = [
 new_entries=[]
 
 for d in last_two_digits:
+    d=int(d)
     category=categories[d%3]
 
     if category=="billing":
@@ -53,4 +56,42 @@ print(df)
 
         
 
+#Q.2
+
+def score_query(query,df):
+    
+    query_words=set(query.lower().split())
+
+    results=[]
+
+    for index, row in df.iterrows():
+        keywords=set(row["keywords"].lower().split())
+
+        matching_words=query_words.intersection(keywords)
+        confidence_score=len(matching_words)/len(query_words)
+
+        if(confidence_score>0):
+          results.append(
+              {
+                  "question":row["question"],
+                  "answer":row["answer"],
+                  "category":row["category"],
+                  "confidence_score": confidence_score
+              }
+          )
+
+    results.sort(key=lambda x:x["confidence_score"], reverse=True)
+    return results
+
+
+query=input("Enter your query: ")
+if (not query.strip()):
+    print("Empty query")
+else :
+    print(score_query(query,df))
+  
+        
+
+            
+        
 
